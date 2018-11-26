@@ -7,21 +7,21 @@
 		<title></title>
 	</head>
 	<body>
-		<div class="send-revert-box">
-			<div class="layui-card perfree-revert-box">
-				<div class="layui-card-header perfree-revert-tools">
-					<span href="javascript:;"><i class="layui-icon">&#xe6af;</i> </span>
-					<span href="javascript:;"><i class="layui-icon">&#xe64a;</i> </span>
-					<span href="javascript:;"><i class="layui-icon">&#xe64d;</i> </span>
-					<span href="javascript:;"><i class="layui-icon">&#xe64e;</i> </span>
-				</div>
-				<div class="layui-card-body perfree-revert-txtBox">
-					<form class="perfree-revert-form" action="">
-							<textarea name="desc" placeholder="请输入内容" class="layui-textarea perfree-revert-txt"></textarea>
-					</form>
-				</div>
-			</div>
+		<div id="perfree" class="send-revert-box">
+			
 		</div>
 		<script src="./plugins/layui/layui.js"></script>
+		<script src="./js/perfreeRevert.js"></script>
+		<script>
+			revert.initRevert({
+				id:"perfree",
+				width:"400px",
+				height:"150px",
+				tip:"评论吧",
+				tools:[
+					'emjoi','image','code'
+				]
+			});
+		</script>
 	</body>
 </html>

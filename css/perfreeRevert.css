@@ -1,7 +1,6 @@
 .send-revert-box{
 	margin-top: 20px;
 	margin-left: 20px;
-	width: 500px;
 }
 .perfree-revert-box{
 	border-top: 1px solid #e6e6e6;
@@ -38,8 +37,8 @@
 	border: 1px solid #e6e6e6;
 }
 .perfree-revert-txt:hover{
-	border: 1px solid #e6e6e6;
+	border: 1px solid #e6e6e6!important;;
 }
 .perfree-revert-txt:focus{
-	border: 1px solid #e6e6e6;
+	border: 1px solid #e6e6e6!important;;
 }
