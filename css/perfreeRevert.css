@@ -1,0 +1,45 @@
+.send-revert-box{
+	margin-top: 20px;
+	margin-left: 20px;
+	width: 500px;
+}
+.perfree-revert-box{
+	border-top: 1px solid #e6e6e6;
+}
+.perfree-revert-tools{
+	background:#fbfbfb;
+	padding: 0;
+	height: 38px;
+	border-left: 1px solid #e6e6e6;
+	border-right: 1px solid #e6e6e6;
+}
+.perfree-revert-tools span{
+	cursor: pointer;
+    display: block;
+	width: 50px;
+	height: 38px;
+	line-height: 38px;
+	color: #009E94;
+	text-align: center;
+	border-right: 1px solid #e6e6e6;
+	float: left;
+}
+.perfree-revert-tools span i{
+	font-size: 18px;
+}
+.perfree-revert-tools span:hover{
+	color: #5FB878;
+	background-color: #eeeeee;
+}
+.perfree-revert-txtBox{
+	padding: 0;
+}
+.perfree-revert-txt{
+	border: 1px solid #e6e6e6;
+}
+.perfree-revert-txt:hover{
+	border: 1px solid #e6e6e6;
+}
+.perfree-revert-txt:focus{
+	border: 1px solid #e6e6e6;
+}
