@@ -52,3 +52,5 @@ tools:要显示哪些功能,目前功能有emjoi,image,code,link
 ```
 ## 插件展示
 [![](https://www.yinpengfei.com/group1/M00/00/02/rB802lv8yEeAGUBbAAASoI0drIA104.jpg)](https://www.yinpengfei.com/group1/M00/00/02/rB802lv8yEeAGUBbAAASoI0drIA104.jpg)
+
+[![](https://www.yinpengfei.com/group1/M00/00/02/rB802lv8yN6AZ5JDAAGDM7wnvSg328.jpg)](https://www.yinpengfei.com/group1/M00/00/02/rB802lv8yN6AZ5JDAAGDM7wnvSg328.jpg)
