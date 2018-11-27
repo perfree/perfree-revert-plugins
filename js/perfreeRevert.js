@@ -1,11 +1,13 @@
 (function($) {
 	var revert = function() {}
-	var emjoi = '<span href="javascript:;" class="perfree-emjoi"><i class="layui-icon">&#xe6af;</i> </span>';
-	var image = '<span href="javascript:;"><i class="layui-icon">&#xe64a;</i> </span>';
-	var link = '<span href="javascript:;"><i class="layui-icon">&#xe64d;</i> </span>';
-	var code = '<span href="javascript:;"><i class="layui-icon">&#xe64e;</i> </span>';
 	revert.prototype = {
+		//初始化
 		initRevert: function(data) {
+			var emjoi = '<span href="javascript:;" class="perfree-emjoi"><i class="layui-icon">&#xe6af;</i> </span>';
+			var image = '<span href="javascript:;" class="perfree-image"><i class="layui-icon">&#xe64a;</i></span>'+
+				'<form id="perfree_image_form" enctype="multipart/form-data"><input type="file" name="perfreeImage" style="display:none;" onchange="revert.addImage(this,\''+data.uploadUrl+'\')"/></form>';
+			var link = '<span href="javascript:;"><i class="layui-icon">&#xe64d;</i> </span>';
+			var code = '<span href="javascript:;"><i class="layui-icon">&#xe64e;</i> </span>';
 			var revertHtml;
 			var tip;
 			if (data.tip == null || data.tip == "") {
@@ -52,9 +54,10 @@
 				var flow = layui.flow;
 				var emjoiList;
 				$("#" + data.id).append(revertHtml);
+				//emjoi弹出层
 				$(".perfree-emjoi").on('click',function(){
 					var X = $(".perfree-emjoi").offset().top;
-					var Y = $(".perfree-emjoi").offset().left;
+					var Y = $(".perfree-revert-box").offset().left;
 					var width = $(".perfree-revert-box").width()/2;
 					var app_id = '1362404091';
 					$.ajax( {
@@ -77,16 +80,21 @@
 							  area: width+"px",
 							  shadeClose: true,
 							  skin: 'yourclass',
-							  offset: [X+41, Y],
+							  offset: [X+41, Y+2],
 							  fixed: false,
 							  content: emjoiIcon
 							});
 							flow.lazyimg(); 
 						}
 					});
-				})
+				});
+				//图片上传弹出层
+				$(".perfree-image").on('click',function(){
+					$("input[name='perfreeImage']").click();
+				});
 			})
 		},
+		//选中emjoi
 		selectEmjoi: function(obj){
 			layui.use(['jquery','layer'], function() {
 				var $ = layui.$;
@@ -94,6 +102,42 @@
 				var revertVal = $(".perfree-revert-txt").val()+$(obj).attr("title");
 				$(".perfree-revert-txt").val(revertVal);
 				layer.close(layer.index);
+			})
+		},
+		//上传图片
+		addImage: function(obj,url){
+			layui.use(['jquery','layer'], function() {
+				var $ = layui.$;
+				var layer = layui.layer;
+				var X = $(".perfree-revert-box").offset().top;
+				var Y = $(".perfree-revert-box").offset().left;
+				var width = $(".perfree-revert-box").width()/2;
+				var height = $(".perfree-revert-box").height()/2;
+				layer.load(0,{
+					offset: [X+height, Y+width-50]
+				});
+				$.ajax({
+					url: url,
+					type: "post",
+					dataType: "json",
+					cache: false,
+					data: new FormData($("#perfree_image_form")[0]),
+					processData: false,
+					contentType: false,
+					success: function(data){
+						layer.close(layer.index);
+						if(data.flag==0){
+							var revertVal = $(".perfree-revert-txt").val()+data.url;
+							$(".perfree-revert-txt").val(revertVal);
+						}else{
+							layer.msg(data.msg, {time: 1000, icon:5});
+						}
+					},
+					error:function(){
+						layer.close(layer.index);
+						layer.msg("服务器异常", {time: 1000, icon:5});
+					}
+				})
 			})
 		}
 	}
