@@ -3,26 +3,36 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="./plugins/layui/css/layui.css">
-		<link rel="stylesheet" href="css/perfreeRevert.css">
+		<link rel="stylesheet" href="css/perfreeRevert.min.css">
 		<title></title>
 	</head>
 	<body>
+		<!-- 声明容器,存放评论框 -->
 		<div id="perfree" class="send-revert-box">
-			
+
 		</div>
+
+		<a onclick="getVal()" style="margin-left: 20px;" href="javascript:;">获取值</a>
 		<script src="./plugins/layui/layui.js"></script>
-		<script src="./js/perfreeRevert.js"></script>
+		<script src="./js/perfreeRevert.min.js"></script>
 		<script>
+			/**初始化*/
 			revert.initRevert({
-				id:"perfree",
-				width:"541px",
-				height:"150px",
-				tip:"请输入评论内容",
-				uploadUrl:"http://xxxxxx.xx",
-				tools:[
-					'emjoi','image','code','link'
+				id: "perfree",
+				width: "541px",
+				height: "150px",
+				tip: "请输入评论内容",
+				uploadUrl: "http://xxxxxx.xx",
+				tools: [
+					'emjoi', 'image', 'code', 'link'
 				]
 			});
+
+			/** 获取返回值 */
+			function getVal() {
+				var data = revert.getRevertVal();
+				alert(data.val);
+			}
 		</script>
 	</body>
 </html>
