@@ -42,3 +42,24 @@
 .perfree-revert-txt:focus{
 	border: 1px solid #e6e6e6!important;;
 }
+.perfree-emjoi-icon-box{
+	overflow: hidden;
+	padding: 10px;
+}
+.perfree-emjoi-icon-box li{
+	display: block;
+	float: left;
+	overflow: hidden;
+	border: 1px solid #e8e8e8;
+	padding: 4px 2px;
+	text-align: center;
+	cursor: pointer;
+	margin: -1px 0 0 -1px;
+}
+.perfree-emjoi-icon-box li:hover{
+	position: relative; z-index: 2; border: 1px solid #eb7350; background: #fff9ec;
+}
+.perfree-emjoi-icon-box li img{
+	width: 20px;
+	height: 20px;
+}
