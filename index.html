@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="./plugins/layui/css/layui.css">
 		<link rel="stylesheet" href="./css/perfreeRevert.min.css">
-		<link rel="stylesheet" href="./plugins/highlight/styles/xcode.css"/>
+		<link rel="stylesheet" href="./plugins/highlight/styles/atom-one-light.css"/>
 		<title></title>
 	</head>
 	<body>
@@ -14,7 +14,7 @@
 		</div>
 
 		<a id="getVal" style="margin-left: 20px;" href="javascript:;">获取值</a>
-		<div class="result-box">
+		<div class="result-box" style="width: 566px;margin-top: 20px;">
 		</div>
 		<script src="./plugins/layui/layui.js"></script>
 		<script src="./plugins/highlight/highlight.pack.js"></script>
@@ -39,9 +39,9 @@
 					var result = revert.getRevertVal();
 					console.log(result.val);
 					$(".result-box").append(result.val);
+					hljs.initHighlighting();
 				});
 			});
-			hljs.initHighlightingOnLoad();
 		</script>
 	</body>
 </html>
