@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="./plugins/layui/css/layui.css">
-		<link rel="stylesheet" href="css/perfreeRevert.min.css">
+		<link rel="stylesheet" href="./css/perfreeRevert.min.css">
+		<link rel="stylesheet" href="./plugins/highlight/styles/xcode.css"/>
 		<title></title>
 	</head>
 	<body>
@@ -12,27 +13,35 @@
 
 		</div>
 
-		<a onclick="getVal()" style="margin-left: 20px;" href="javascript:;">获取值</a>
+		<a id="getVal" style="margin-left: 20px;" href="javascript:;">获取值</a>
+		<div class="result-box">
+		</div>
 		<script src="./plugins/layui/layui.js"></script>
-		<script src="./js/perfreeRevert.min.js"></script>
+		<script src="./plugins/highlight/highlight.pack.js"></script>
 		<script>
-			/**初始化*/
-			revert.initRevert({
-				id: "perfree",
-				width: "541px",
-				height: "150px",
-				tip: "请输入评论内容",
-				uploadUrl: "http://xxxxxx.xx",
-				tools: [
-					'emjoi', 'image', 'code', 'link'
-				]
+			layui.config({
+				base: './js/'//评论插件存放的目录
+			}).use(['jquery','revert'],function () {
+				var $ = layui.$;
+				revert = layui.revert;
+				//初始化
+				revert.initRevert({
+					el:"#perfree",
+					width: "541px",
+					height: "150px",
+					tip: "请输入评论内容",
+					uploadUrl: "http://xxxxxx.xx",
+					tools: [
+						'emjoi', 'image', 'code', 'link'
+					]
+				});
+				$("#getVal").on("click",function(){
+					var result = revert.getRevertVal();
+					console.log(result.val);
+					$(".result-box").append(result.val);
+				});
 			});
-
-			/** 获取返回值 */
-			function getVal() {
-				var data = revert.getRevertVal();
-				alert(data.val);
-			}
+			hljs.initHighlightingOnLoad();
 		</script>
 	</body>
 </html>
