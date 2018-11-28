@@ -14,6 +14,7 @@
 		</div>
 
 		<a id="getVal" style="margin-left: 20px;" href="javascript:;">获取值</a>
+		<!-- 结果展示 -->
 		<div class="result-box" style="width: 566px;margin-top: 20px;">
 		</div>
 		<script src="./plugins/layui/layui.js"></script>
@@ -36,6 +37,7 @@
 					]
 				});
 				$("#getVal").on("click",function(){
+					//获取结果
 					var result = revert.getRevertVal();
 					console.log(result.val);
 					$(".result-box").append(result.val);
